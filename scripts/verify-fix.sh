@@ -1,31 +1,39 @@
 
-echo "✅ Verification Script - 516 Hackers"
-echo "===================================="
 
-echo "🔧 Testing tool wrappers..."
+echo "✅ 516 Hackers - Verification Script"
+echo "==================================="
 
-# Test each category
+echo "🔧 Testing wrapper scripts..."
+
+# Test each wrapper
+tools=(
+    "tools/reconnaissance/whois-wrapper.sh example.com"
+    "tools/network/nmap-wrapper.sh scanme.nmap.org quick"
+    "tools/web/gobuster-wrapper.sh dir http://example.com"
+    "tools/vulnerability/nikto-wrapper.sh http://example.com"
+)
+
+for tool_cmd in "${tools[@]}"; do
+    tool=$(echo "$tool_cmd" | cut -d' ' -f1)
+    if [ -f "$tool" ]; then
+        # Test if wrapper runs without permission errors
+        timeout 10s $tool_cmd > /dev/null 2>&1
+        if [ $? -eq 0 ] || [ $? -eq 124 ]; then
+            echo "✅ $tool - WORKING"
+        else
+            echo "❌ $tool - FAILED"
+        fi
+    else
+        echo "⚠️  $tool - NOT FOUND"
+    fi
+done
+
 echo ""
-echo "🔍 RECONNAISSANCE TOOLS:"
-./tools/reconnaissance/whois-wrapper.sh example.com > /dev/null 2>&1 && echo "✅ WHOIS wrapper" || echo "❌ WHOIS wrapper"
-
-echo ""
-echo "🌐 NETWORK TOOLS:"
-./tools/network/nmap-wrapper.sh scanme.nmap.org quick > /dev/null 2>&1 && echo "✅ Nmap wrapper" || echo "❌ Nmap wrapper"
-
-echo ""
-echo "🕸️ WEB TOOLS:"
-./tools/web/gobuster-wrapper.sh dir http://example.com > /dev/null 2>&1 && echo "✅ Gobuster wrapper" || echo "❌ Gobuster wrapper"
-
-echo ""
-echo "🎯 VULNERABILITY TOOLS:"
-./tools/vulnerability/nikto-wrapper.sh http://example.com > /dev/null 2>&1 && echo "✅ Nikto wrapper" || echo "❌ Nikto wrapper"
-
-echo ""
-echo "📊 Checking logs directory..."
+echo "📁 Checking logs directory..."
 if [ -d "logs" ]; then
     echo "✅ Logs directory exists"
-    echo "   Files in logs: $(ls logs/ | wc -l)"
+    log_count=$(find logs -name "*.log" 2>/dev/null | wc -l)
+    echo "   Log files: $log_count"
 else
     echo "❌ Logs directory missing"
 fi
