@@ -1,8 +1,4 @@
-Looking at your file structure, I can see you have `cybertoolkit/docs/installation.md` already. Let me provide the complete code for this file and then list all remaining documentation files you need.
 
-## docs/installation.md (Complete Code)
-
-```markdown
 # 📥 Installation Guide
 
 ## System Requirements
@@ -332,33 +328,7 @@ pkg reinstall python nmap
 
 **Need help? Check the [FAQ.md](FAQ.md) or open an issue on GitHub!**
 
-*Last updated: $(date)*
-```
 
-## 📋 Remaining Documentation Files Needed:
-
-Based on your file structure, here are the remaining documentation files you need:
-
-### **Root Directory (6 files):**
-1. `README.md` ✅ *(Already provided in previous response)*
-2. `LEGAL.md` 
-3. `LICENSE.md` 
-4. `CONTRIBUTING.md` 
-5. `CODE_OF_CONDUCT.md` 
-6. `.gitignore` ✅ *(Already provided)*
-
-### **docs/ Directory (2 files):**
-1. `installation.md` ✅ *(Provided above)*
-2. `platform_notes.md` 
-3. `FAQ.md` 
-
-### **templates/ Directory (2 files):**
-1. `add-new-tool.md` 
-2. `report-template.md` 
-
-### **.github/ Directory (2 files):**
-1. `ISSUE_TEMPLATE.md` 
-2. `PULL_REQUEST_TEMPLATE.md` 
 
 ### **Tool Category README files (7 files):**
 1. `tools/reconnaissance/README.md`
@@ -369,19 +339,3 @@ Based on your file structure, here are the remaining documentation files you nee
 6. `tools/analysis/README.md`
 7. `tools/utils/README.md`
 
-## 📊 Summary:
-- **✅ Already provided**: 2 files (README.md, .gitignore)
-- **✅ Just provided**: 1 file (installation.md)  
-- **❌ Remaining**: 14 files
-
-## 🚀 Next Steps:
-
-Would you like me to provide the remaining 14 files? I can generate them systematically starting with the most critical ones:
-
-1. **Legal & License files** (LEGAL.md, LICENSE.md, CONTRIBUTING.md)
-2. **Tool category READMEs** (7 files for each tool category)
-3. **Templates** (add-new-tool.md, report-template.md)
-4. **GitHub templates** (ISSUE_TEMPLATE.md, PULL_REQUEST_TEMPLATE.md)
-5. **Remaining docs** (platform_notes.md, FAQ.md, CODE_OF_CONDUCT.md)
-
-Which set would you like me to work on next?
