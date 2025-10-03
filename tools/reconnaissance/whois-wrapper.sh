@@ -1,10 +1,7 @@
-#!/bin/bash
-# WHOIS Wrapper - 516 Hackers Toolkit
-# Legal: Only use on authorized targets
 
 set -e
 
-LOG_DIR="../../logs"
+LOG_DIR="./logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/whois_$(date +%Y%m%d_%H%M%S).log"
 
