@@ -1,9 +1,7 @@
-#!/bin/bash
-# Masscan Wrapper - 516 Hackers Toolkit
 
 set -e
 
-LOG_DIR="../../logs"
+LOG_DIR="./logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/masscan_$(date +%Y%m%d_%H%M%S).log"
 
@@ -18,8 +16,9 @@ if ! command -v masscan &> /dev/null; then
 fi
 
 if [ $# -lt 1 ]; then
-    echo "Usage: $0 <target> [ports]"
+    echo "Usage: $0 <target> [ports] [rate]"
     echo "Example: $0 192.168.1.0/24 1-1000"
+    echo "Example: $0 192.168.1.0/24 80,443,22 1000"
     exit 1
 fi
 
