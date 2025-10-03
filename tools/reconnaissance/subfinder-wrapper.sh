@@ -1,9 +1,7 @@
-#!/bin/bash
-# Subfinder Wrapper - 516 Hackers Toolkit
 
 set -e
 
-LOG_DIR="../../logs"
+LOG_DIR="./logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/subfinder_$(date +%Y%m%d_%H%M%S).log"
 
@@ -12,7 +10,7 @@ echo "[516] Subfinder Wrapper - Starting subdomain discovery"
 
 if ! command -v subfinder &> /dev/null; then
     echo "Error: subfinder not found. Install with:"
-    echo "  go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
+    echo "  Go: go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
     exit 1
 fi
 
