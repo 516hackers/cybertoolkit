@@ -47,6 +47,18 @@ chmod +x tools/**/*.py
 ./scripts/check-env.sh
 ```
 
+# Make executable
+```
+chmod +x scripts/list-tools.sh
+chmod +x scripts/tools-quick.sh
+
+# Run detailed list
+./scripts/list-tools.sh
+
+# Run quick list
+./scripts/tools-quick.sh
+```
+
 ### Platform-Specific Setup
 
 #### 🐉 Kali Linux
