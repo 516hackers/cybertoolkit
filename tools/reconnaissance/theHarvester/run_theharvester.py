@@ -34,8 +34,10 @@ def main():
     
     args = parser.parse_args()
     
-    # Setup logging
-    log_dir = Path("../../logs")
+    # FIXED: Use relative path to logs directory
+    script_dir = Path(__file__).parent
+    log_dir = script_dir / "../../logs"
+    log_dir = log_dir.resolve()
     log_dir.mkdir(exist_ok=True)
     log_file = log_dir / f"theharvester_{args.domain}_{os.getpid()}.log"
     
