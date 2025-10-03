@@ -1,5 +1,5 @@
 {
-  "name": "516 Cybertoolkit",
+   "name": "516 Cybertoolkit",
   "image": "cybertoolkit:latest",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {},
