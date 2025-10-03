@@ -1,0 +1,21 @@
+{
+  "name": "516 Cybertoolkit",
+  "image": "cybertoolkit:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "timonwong.shellcheck",
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  },
+  "postCreateCommand": "chmod +x scripts/*.sh && ./scripts/check-env.sh",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ]
+}
