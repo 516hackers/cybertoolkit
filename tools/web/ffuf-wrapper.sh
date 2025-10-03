@@ -3,7 +3,7 @@
 
 set -e
 
-LOG_DIR="../../logs"
+LOG_DIR="./logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/ffuf_$(date +%Y%m%d_%H%M%S).log"
 
@@ -17,7 +17,7 @@ if ! command -v ffuf &> /dev/null; then
 fi
 
 if [ $# -lt 2 ]; then
-    echo "Usage: $0 <url> <wordlist> [options]"
+    echo "Usage: $0 <url> <wordlist>"
     echo "Example: $0 http://example.com/FUZZ /usr/share/wordlists/dirb/common.txt"
     exit 1
 fi
@@ -25,10 +25,18 @@ fi
 URL=$1
 WORDLIST=$2
 
+# Shift to get remaining arguments
+shift 2
+EXTRA_OPTS="$*"
+
 echo "[516] Target: $URL"
 echo "[516] Wordlist: $WORDLIST"
 
-ffuf -u "$URL" -w "$WORDLIST" -c -v
+if [ -z "$EXTRA_OPTS" ]; then
+    ffuf -u "$URL" -w "$WORDLIST" -c -v
+else
+    ffuf -u "$URL" -w "$WORDLIST" -c -v $EXTRA_OPTS
+fi
 
 echo "[516] FFUF fuzzing completed"
 } | tee -a "$LOG_FILE"
