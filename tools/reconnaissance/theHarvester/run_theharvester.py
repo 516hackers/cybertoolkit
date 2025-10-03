@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 theHarvester Wrapper - 516 Hackers Toolkit
 Legal: Only use on authorized targets
