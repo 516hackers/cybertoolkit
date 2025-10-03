@@ -23,42 +23,80 @@ A comprehensive cybersecurity toolkit designed for ethical security testing, pen
 - Basic terminal knowledge
 - Legal authorization for testing
 
-### Installation
+## ![Installation](https://img.shields.io/badge/Installation-blue) ![Auto](https://img.shields.io/badge/Mode-Auto-green) Method 1: Automated Installation (Recommended)
 
-#### Method 1: Automated Installation (Recommended)
-```bash
+
+
+Open a terminal and run:
+
+
+ 1. Clone the repo
+```
 git clone https://github.com/516hackers/cybertoolkit.git
 cd cybertoolkit
+```
+
+ 2. Make installer scripts executable
+```
+chmod +x scripts/*.sh
+```
+
+ 3. Run the automated installer
+```
 ./scripts/install-all.sh
 ```
 
-#### Method 2: Manual Setup
+This will install common tools and make the toolkit ready to use.
+
+---
+
+## ![Manual Setup](https://img.shields.io/badge/Setup-Manual-orange) Method 2: Manual Setup
+
+
+1. Clone the repo:
+
 ```bash
-# Clone repository
 git clone https://github.com/516hackers/cybertoolkit.git
 cd cybertoolkit
+```
 
-# Make scripts executable
+2. Make helper scripts executable:
+
+```bash
 chmod +x scripts/*.sh
 chmod +x tools/**/*.sh
 chmod +x tools/**/*.py
+```
 
-# Run environment check
+3. Run the environment checker:
+
+```bash
 ./scripts/check-env.sh
 ```
 
-# Make executable
+
+## ![Commands](https://img.shields.io/badge/Basic-Commands-blueviolet) Basic commands you will use
+
+
+* Show list of available tools:
+
 ```
-chmod +x scripts/list-tools.sh
-chmod +x scripts/tools-quick.sh
-
-# Run detailed list
 ./scripts/list-tools.sh
+```
 
-# Run quick list
+* Quick access menu:
+
+```bash
 ./scripts/tools-quick.sh
 ```
 
+* Run a tool wrapper (example: whois):
+
+```bash
+./tools/reconnaissance/whois-wrapper.sh example.com
+```
+
+---
 ### Platform-Specific Setup
 
 #### 🐉 Kali Linux
