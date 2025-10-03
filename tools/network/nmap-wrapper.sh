@@ -1,10 +1,7 @@
-#!/bin/bash
-# Nmap Wrapper - 516 Hackers Toolkit
-# Enhanced with 516 security scanning profiles
 
 set -e
 
-LOG_DIR="../../logs"
+LOG_DIR="./logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/nmap_$(date +%Y%m%d_%H%M%S).log"
 
