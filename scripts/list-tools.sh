@@ -15,19 +15,10 @@ ORANGE='\033[0;33m'
 WHITE='\033[1;37m'
 NC='\033[0m' # No Color
 
-# Tactical Banner
-echo -e "${RED}"
-echo " ██████╗ ██╗  ██╗ ██████╗     ██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗ ███████╗"
-echo "██╔═══██╗╚██╗██╔╝██╔════╝     ██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗██╔════╝"
-echo "██║   ██║ ╚███╔╝ ██║  ███╗    ███████║███████║██║     █████╔╝ █████╗  ██████╔╝███████╗"
-echo "██║   ██║ ██╔██╗ ██║   ██║    ██╔══██║██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗╚════██║"
-echo "╚██████╔╝██╔╝ ██╗╚██████╔╝    ██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║███████║"
-echo " ╚═════╝ ╚═╝  ╚═╝ ╚═════╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝"
-echo -e "${NC}"
-echo -e "${BLUE}┌─────────────────────────────────────────────────────────────────────────────┐"
-echo -e "│                    TACTICAL TOOL INVENTORY - CLASSIFIED  [ 516 Hackers ]                     │"
-echo -e "└─────────────────────────────────────────────────────────────────────────────┘${NC}"
-echo -e "${YELLOW}Operation: Cybertoolkit | Status: ACTIVE | Clearance: OPERATIONAL${NC}"
+# Banner — Cyberpunk neon
+echo -e "${MAGENTA}▁ ▂ ▄ ▅ ▆ ▇ █  516 Hacker  █ ▇ ▆ ▅ ▄ ▂ ▁${NC}"
+echo -e "${CYAN}» Cybertoolkit — Tactical Tool Inventory${NC}"
+echo -e "${YELLOW}Operation: Cybertoolkit | Status: ACTIVE${NC}"
 echo ""
 
 # Operational Functions
