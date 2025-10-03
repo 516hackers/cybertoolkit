@@ -22,9 +22,34 @@ def check_theharvester():
 def install_theharvester():
     """Provide installation instructions"""
     print("[516] theHarvester not found. Install with:")
-    print("  pip install theharvester")
+    print("  Kali/Termux: pip install theharvester")
     print("  Or clone from: https://github.com/laramies/theHarvester")
     return False
+
+def get_log_directory():
+    """Get the correct log directory path with fallbacks"""
+    # 1. Check environment variable first
+    env_log_dir = os.getenv('CYBERTOOLKIT_LOG_DIR')
+    if env_log_dir:
+        log_dir = Path(env_log_dir)
+        log_dir.mkdir(exist_ok=True)
+        return log_dir.resolve()
+    
+    # 2. Check for logs directory in project root
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent.parent
+    log_dir = project_root / "logs"
+    
+    try:
+        log_dir.mkdir(exist_ok=True)
+        return log_dir.resolve()
+    except (PermissionError, OSError):
+        pass
+    
+    # 3. Fallback to current directory
+    current_logs = Path("./logs")
+    current_logs.mkdir(exist_ok=True)
+    return current_logs.resolve()
 
 def main():
     parser = argparse.ArgumentParser(description='theHarvester Wrapper - 516 Hackers Toolkit')
@@ -34,14 +59,13 @@ def main():
     
     args = parser.parse_args()
     
-    # FIXED: Use relative path to logs directory
-    script_dir = Path(__file__).parent
-    log_dir = script_dir / "../../logs"
-    log_dir = log_dir.resolve()
-    log_dir.mkdir(exist_ok=True)
+    # Get the correct log directory
+    log_dir = get_log_directory()
     log_file = log_dir / f"theharvester_{args.domain}_{os.getpid()}.log"
     
     print(f"[516] Starting theHarvester scan for: {args.domain}")
+    print(f"[516] Platform: {sys.platform}")
+    print(f"[516] Log directory: {log_dir}")
     
     if not check_theharvester():
         install_theharvester()
@@ -57,7 +81,9 @@ def main():
     try:
         with open(log_file, 'w') as log:
             log.write(f"[516] theHarvester Scan for {args.domain}\n")
-            log.write(f"[516] Command: {' '.join(cmd)}\n\n")
+            log.write(f"[516] Command: {' '.join(cmd)}\n")
+            log.write(f"[516] Platform: {sys.platform}\n")
+            log.write(f"[516] Log file: {log_file}\n\n")
             
             process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
             
