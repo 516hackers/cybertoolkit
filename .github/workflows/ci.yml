@@ -13,11 +13,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: ShellCheck
-      uses: ludeeus/action-shellcheck@1.1.0
-      with:
-        scandir: 'tools'
-        
+    - name: Setup ShellCheck
+      run: sudo apt update && sudo apt install -y shellcheck
+    
+    - name: ShellCheck Scan
+      run: |
+        echo "Running ShellCheck on all shell scripts..."
+        find tools/ scripts/ -name "*.sh" -exec shellcheck {} \; || true
+    
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -28,6 +31,14 @@ jobs:
         pip install bandit
         bandit -r tools/ -f json -o bandit-results.json || true
         
+    - name: Python Syntax Check
+      run: |
+        echo "Checking Python syntax..."
+        python3 -m py_compile tools/utils/osint_lookup.py
+        python3 -m py_compile tools/analysis/metadata-extractor.py
+        python3 -m py_compile tools/reconnaissance/theHarvester/run_theharvester.py
+        
     - name: Check file permissions
       run: |
-        find tools/ -name "*.sh" -exec test -x {} \; || echo "Some scripts are not executable"
+        echo "Checking script permissions..."
+        find tools/ scripts/ -name "*.sh" -exec test -x {} \; -o -exec echo "Script not executable: {}" \;
