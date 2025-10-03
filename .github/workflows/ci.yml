@@ -1,0 +1,33 @@
+name: CI Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: ShellCheck
+      uses: ludeeus/action-shellcheck@1.1.0
+      with:
+        scandir: 'tools'
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Bandit Security Scan
+      run: |
+        pip install bandit
+        bandit -r tools/ -f json -o bandit-results.json || true
+        
+    - name: Check file permissions
+      run: |
+        find tools/ -name "*.sh" -exec test -x {} \; || echo "Some scripts are not executable"
