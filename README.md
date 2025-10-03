@@ -77,7 +77,7 @@ chmod +x tools/**/*.py
 
 ## ![Commands](https://img.shields.io/badge/Basic-Commands-blueviolet) Basic commands you will use
 
-<img width="771" height="514" alt="Screenshot newtool" src="https://github.com/user-attachments/assets/9a0f51d3-d965-49b2-ae24-b2811b441c97" />
+<img width="816" height="500" alt="dvbdgScreenshot (23)" src="https://github.com/user-attachments/assets/4359eb35-3431-47ee-96b6-b53dfdc1d258" />
 
 
 * Show list of available tools:
