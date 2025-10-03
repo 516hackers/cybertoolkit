@@ -11,7 +11,7 @@ insert_final_newline = true
 [*.py]
 indent_size = 4
 
-[*.{sh,bash}]
+[*.sh]
 indent_size = 2
 
 [*.md]
