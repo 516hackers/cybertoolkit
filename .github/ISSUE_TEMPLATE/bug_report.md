@@ -1,5 +1,11 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
+assignees: ''
 
-
+---
 
 ```markdown
 ---
@@ -71,4 +77,3 @@ go version  # if applicable
 - [ ] I have read and understood the LEGAL.md document
 - [ ] No sensitive target information is disclosed
 ```
-
