@@ -1,6 +1,4 @@
-#!/bin/bash
-# 516 Hackers - Cybertoolkit Tactical Inventory
-# Operational Tool Inventory System
+
 
 set -e
 
