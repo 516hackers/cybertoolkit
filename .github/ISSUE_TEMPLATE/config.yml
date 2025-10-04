@@ -1,0 +1,17 @@
+
+```yaml
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation
+    url: https://github.com/516hackers/cybertoolkit/wiki
+    about: Check our documentation and guides
+  - name: 💬 Discussions
+    url: https://github.com/516hackers/cybertoolkit/discussions
+    about: Ask questions and share ideas
+  - name: 🔒 Security Policy
+    url: https://github.com/516hackers/cybertoolkit/SECURITY.md
+    about: Please read this before reporting security issues
+  - name: ⚖️ Legal Guidelines
+    url: https://github.com/516hackers/cybertoolkit/LEGAL.md
+    about: Understand proper usage of these tools
+```
