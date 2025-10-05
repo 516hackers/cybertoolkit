@@ -27,8 +27,9 @@ echo -e "${RED}"
  
 
 echo -e "${NC}"
-echo -e "${BLUE}┌─────────────────────────────────────────────────────────────────────────────┐"
-echo -e "│                    TACTICAL TOOL INVENTORY - CLASSIFIED                       │"
+echo -e "${BLUE}"
+echo -e "┌─────────────────────────────────────────────────────────────────────────────┐"
+echo -e "│                    TACTICAL TOOL INVENTORY - CLASSIFIED                     │"
 echo -e "└─────────────────────────────────────────────────────────────────────────────┘${NC}"
 echo -e "${YELLOW}Operation: 516 Hackers | Status: ACTIVE | Clearance: OPERATIONAL${NC}"
 echo ""
